@@ -1,1 +1,50 @@
-<h1>2xp metronome</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>speed trainer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Noto+Sans+JP&family=Press+Start+2P&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <h1>2xp metronome</h1>
+    <div id = "metronomebox">
+      <div id = "space">
+      </div>
+      <div id = "controls">
+      <div id = "tempobox">
+        <div id = "tempodescription">
+          <div><h2>Select tempo and time signature</h2></div>
+          </div>
+      <input id = "temposelector" type = "number" value = "120" min = "30" max = "300" step = "5"></input>
+      <input id = "beats" type = "number" value = "4"></input><span id = "slashsign">/</span>
+      <select id = "notevalue">
+        <option value = "4">4</option>
+        <option>8</option>
+        <option>16</option>
+      </select>
+      </div>
+      <div id = "speedtrainertoggle">
+      <input type="checkbox" id="speedcheckbox">
+    <label for="speedcheckbox">Speed trainer mode</label>
+      </div>
+      <div id = "speedtrainerbox">
+    <div><h2>Speed trainer</h2></div>
+      <p>Destination speed:<input class = "speedinput" id = "speedstop" type = "number" value = "180" disabled = "true"></input></p>
+      <p>Step:<input class = "speedinput" id = "step" type = "number" value = "5" disabled = "true"></input></p>
+      <p>Iterations:<input class = "speedinput" id = "iterations" type = "number" value = "2" disabled = "true"></input></p>
+      <p id = "tempodisplay">Current tempo:</p>
+    </div>
+      <div id ="playbuttonsection">
+      <button id="playbutton" data-playing="false" role="switch" aria-checked="false">
+        <span>Start/Stop</span></button>
+      </div>
+    </div>
+    <div id = "volumesection">
+    <input id = "volumeslider" type= "range" min= "0" max= "1" step= "0.01" value= "0.5" orient = "vertical"></input>    
+    </div>
+  </body>
+  <script src="speedTrainer.js"></script>
+</html>
