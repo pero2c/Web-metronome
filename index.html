@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="/Web-metronome/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Noto+Sans+JP&family=Press+Start+2P&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Noto+Sans+JP&family=Press+Start+2P&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/df48dd140a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>2xp metronome</h1>
@@ -32,9 +33,18 @@
       </div>
       <div id = "speedtrainerbox">
     <div><h2>Speed trainer</h2></div>
-      <p>Destination speed:<input class = "speedinput" id = "speedstop" type = "number" value = "180" disabled = "true"></input></p>
-      <p>Step:<input class = "speedinput" id = "step" type = "number" value = "5" disabled = "true"></input></p>
-      <p>Iterations:<input class = "speedinput" id = "iterations" type = "number" value = "2" disabled = "true"></input></p>
+      <p>
+      <i class="fa-solid fa-circle-question" title = "The tempo will increase until this tempo is reached"></i>
+      Destination speed:<input class = "speedinput" id = "speedstop" type = "number" value = "180" disabled = "true"></input>
+      </p>
+      <p>
+      <i class="fa-solid fa-circle-question" title = "How much BPM to add each time the speed is increased"></i>
+      Step:<input class = "speedinput" id = "step" type = "number" value = "5" disabled = "true"></input>
+      </p>
+      <p>
+      <i class="fa-solid fa-circle-question" title = "The number of bars that will play before tempo is increased"></i>
+      Iterations:<input class = "speedinput" id = "iterations" type = "number" value = "2" disabled = "true"></input>
+      </p>
       <p id = "tempodisplay">Current tempo:</p>
     </div>
       <div id ="playbuttonsection">
