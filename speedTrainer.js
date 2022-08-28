@@ -2,6 +2,8 @@
 
 let context = new AudioContext();
 
+let tapContext = new AudioContext();
+
 //object that will hold the audio samples once they are loaded
 
 let mySounds = {
@@ -29,7 +31,9 @@ let destinationSpeedInput = document.getElementById("speedstop");
 
 let speedTrainerStepInput = document.getElementById("step");
 
-let tempoDisplay = document.getElementById("tempodisplay")
+let tempoDisplay = document.getElementById("tempodisplay");
+
+let tapButton = document.getElementById("tapbutton");
 
 //declare variables
 
@@ -54,6 +58,10 @@ let overlap = 1.5 * schedulerFrequency / 1000; //seconds
 let playing = false;
 
 let nextNoteTime = 0.0;
+
+let tapArray = [];
+
+let taps = 0;
 
 //event listeners so that the program responds to changes in input
 
@@ -126,6 +134,26 @@ function scheduler() {
   timerID = window.setTimeout(scheduler, schedulerFrequency);
 }
 
+function tapTempo() {
+  //start running the tapContext so we have a clock
+  tapContext.resume();
+  taps++;
+  if(tapArray.length == 4){
+    tapArray.shift();
+  }
+  tapArray.push(tapContext.currentTime);
+  }
+
+function tapCalculate(arr) {
+  let diffArr = [];
+  for(let i = 1; i < arr.length; i++){
+    diffArr.push(arr[i] - arr[i - 1]);
+  }
+  let avg = diffArr.reduce((a, b) => a + b, 0) / diffArr.length;
+  tempoInput.value = Math.round(1 / avg * 60);
+  tempo = Math.round(1 / avg * 60);
+}
+
 function play() {
   playing = !playing;
   if(playing) {
@@ -177,18 +205,23 @@ function init(){
 }
 
 btn.addEventListener("click", () => {
-  console.log(speedCheckbox.checked);
   play();
 });
 
 speedCheckbox.addEventListener("change", () => {
-  console.log("checkbox changed")
   if(speedCheckbox.checked){
     unlockSpeedInputs();
   } else {
     lockSpeedInputs();
   }
   });
+
+tapButton.addEventListener("click", () => {
+  tapTempo();
+  if (taps >= 4){
+    tapCalculate(tapArray);
+  }
+})
 
 //stop and play metronome with spacebar
 
