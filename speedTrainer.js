@@ -232,8 +232,8 @@ window.onkeydown = function(event){
   }
 }
 
-loadSound("/web-metronome/mybeep.wav", "beep");
+loadSound("/Web-metronome/mybeep.wav", "beep");
 
-loadSound("/web-metronome/mainbeep.wav", "accent");
+loadSound("/Web-metronome/mainbeep.wav", "accent");
 
 init();
