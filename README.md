@@ -1,5 +1,5 @@
 # Web metronome
-A web metronome built using the Web Audio API. The core approach to scheduling audio is taken from Chris Wilson's [A tale of two clocks](https://web.dev/audio-scheduling/) article, with some modifications to accomodate extra features. 
+A web metronome with support for multiple time signatures built using the Web Audio API. The core approach to scheduling audio is taken from Chris Wilson's [A tale of two clocks](https://web.dev/audio-scheduling/) article, with some modifications to accomodate extra features. 
 
 The metronome has a **speed trainer mode** that automatically increases the tempo by a set step after a selected amount of bars elapses
 until it reaches the destination tempo. 
